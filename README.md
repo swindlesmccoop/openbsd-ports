@@ -1,2 +1,9 @@
-# Personal OpenBSD ports
-Recently I switched to OpenBSD because...why not, right? Well, there's a lot of software that I want that's Linux-only, so this repository is aimed at bridging the gap so that my entire Linux rice works on OpenBSD.
+# Usage
+[Set up the ports tree](https://www.openbsd.org/faq/ports/ports.html#PortsFetch)
+```
+git clone https://git.cbps.xyz/swindlesmccoop/openbsd-ports/
+doas cp -r openbsd-ports/* /usr/ports/mystuff/
+cd /usr/ports/mystuff/[package]
+su
+make
+```
