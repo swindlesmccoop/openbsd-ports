@@ -1,0 +1,6 @@
+@bin bin/dwm
+share/dwm/
+share/dwm/larbs.mom
+@mandir share/man/
+share/man/man1/
+@man share/man/man1/dwm.1
