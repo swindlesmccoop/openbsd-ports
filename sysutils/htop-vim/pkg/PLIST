@@ -1,0 +1,11 @@
+@bin bin/htop
+@man man/man1/htop.1
+share/applications/
+share/applications/htop.desktop
+share/icons/
+share/icons/hicolor/
+share/icons/hicolor/scalable/
+share/icons/hicolor/scalable/apps/
+share/icons/hicolor/scalable/apps/htop.svg
+share/pixmaps/
+share/pixmaps/htop.png
