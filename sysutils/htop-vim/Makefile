@@ -2,7 +2,6 @@ COMMENT =			Interactive process viewer with vim-like keybindings
 V =					3.2.1
 DISTNAME =			htop-vim-${V}
 CATEGORIES =		sysutils
-REVISION =			8
 
 HOMEPAGE =			https://github.com/KoffeinFlummi/htop-vim
 MAINTAINER =		Swindles McCoop <swindlesmccoop@waifu.club>
