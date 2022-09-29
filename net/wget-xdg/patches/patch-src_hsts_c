@@ -1,0 +1,21 @@
+Index: src/hsts.c
+--- src/hsts.c.orig
++++ src/hsts.c
+@@ -630,7 +630,7 @@ get_hsts_store_filename (void)
+ 
+   if (opt.homedir)
+     {
+-      filename = ajoin_dir_file (opt.homedir, ".wget-hsts-test");
++      filename = ajoin_dir_file (get_hsts_file_dir(), HSTS_TEST_FILE);
+       fp = fopen (filename, "w");
+       if (fp)
+         fclose (fp);
+@@ -796,7 +796,7 @@ test_hsts_read_database (void)
+ 
+   if (opt.homedir)
+     {
+-      file = ajoin_dir_file (opt.homedir, ".wget-hsts-testing");
++      file = ajoin_dir_file (get_hsts_file_dir(), HSTS_TESTING_FILE);
+       fp = fopen (file, "w");
+       if (fp)
+         {

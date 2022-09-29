@@ -1,0 +1,68 @@
+Index: src/main.c
+--- src/main.c.orig
++++ src/main.c
+@@ -31,6 +31,8 @@ as that of the covered work.  */
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <sys/types.h>
++#include <sys/stat.h>
+ #include <unistd.h>
+ #include <string.h>
+ #include <signal.h>
+@@ -63,6 +65,7 @@ as that of the covered work.  */
+ #include <getopt.h>
+ #include <getpass.h>
+ #include <quote.h>
++#include "path.c"
+ 
+ #ifdef TESTING
+ /* Rename the main function so we can have a main() in fuzzing code
+@@ -178,8 +181,21 @@ get_hsts_database (void)
+ 
+   if (opt.homedir)
+     {
+-      char *dir = ajoin_dir_file(opt.homedir, ".wget-hsts");
+-      return dir;
++      char* dir = get_hsts_file_dir();
++      char* path = ajoin_dir_file(get_hsts_file_dir(), HSTS_FILE);
++      struct stat st = {0};
++
++      /* make directory for hsts file if it does not exist */
++      if (stat(dir, &st) == -1)
++        {
++        int mkdir_sucess = mkdir(dir, 0700);
++        if (!(stat(dir, &st) == 0 && S_ISDIR(st.st_mode)))
++          {
++          printf("Error: Could not create hsts file\n");
++          exit (WGET_EXIT_GENERIC_ERROR);
++        }
++      }
++      return path;
+     }
+ 
+   return NULL;
+@@ -206,7 +222,8 @@ load_hsts (void)
+       else
+         logprintf (LOG_NOTQUIET, "ERROR: could not open HSTS store. HSTS will be disabled.\n");
+ 
+-      xfree (filename);
++      /* TODO: get free() call working again */
++      // xfree (filename);
+     }
+ }
+ 
+@@ -224,9 +241,11 @@ save_hsts (void)
+         }
+ 
+       hsts_store_close (hsts_store);
+-      xfree (hsts_store);
++      /* TODO: get free() call working again */
++      // xfree (hsts_store);
+ 
+-      xfree (filename);
++      /* TODO: get free() call working again */
++      // xfree (filename);
+     }
+ }
+ #endif

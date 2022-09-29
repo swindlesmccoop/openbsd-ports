@@ -1,0 +1,58 @@
+Index: src/path.c
+--- src/path.c.orig
++++ src/path.c
+@@ -0,0 +1,54 @@
++#include "wget.h"
++
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <limits.h>
++#include <string.h>
++
++#include "path.h"
++#include "exits.h"
++
++char*
++get_hsts_file_dir (void)
++{
++  char *home_dir;
++  char *default_xdg_dir = "/" DEDAULT_XDG_CACHE_DIR;
++  char *hsts_file_base_dir = "/" HSTS_FILE_DIR;
++  char* user_xdg_dir;
++  static char hsts_file_dir[_POSIX_PATH_MAX] = "";
++  const char *slash = "/";
++  char *check_multiple;
++
++  if (!(home_dir = getenv("HOME")))
++  {
++    printf("Error: Could not access home directory\n");
++    exit (WGET_EXIT_GENERIC_ERROR);
++  }
++
++  /* prevent the function from runnning multiple times by returning right away
++   * when a a "/" character is found in the hsts_file_dir variable
++   */
++  check_multiple = hsts_file_dir;
++  while (*check_multiple)
++  {
++    if (strchr(slash, *check_multiple))
++    {
++      return hsts_file_dir;
++    }
++    check_multiple++;
++  }
++
++  if ((user_xdg_dir = getenv("XDG_CACHE_HOME")))
++  {
++    strcat(hsts_file_dir, user_xdg_dir);
++  } else
++    {
++  strcat(hsts_file_dir, home_dir);
++      strcat(hsts_file_dir, default_xdg_dir);
++    }
++
++  strcat(hsts_file_dir, hsts_file_base_dir);
++
++  return hsts_file_dir;
++}

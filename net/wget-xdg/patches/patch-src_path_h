@@ -1,0 +1,9 @@
+Index: src/path.h
+--- src/path.h.orig
++++ src/path.h
+@@ -0,0 +1,5 @@
++#define HSTS_FILE_DIR "wget"
++#define HSTS_FILE "hsts"
++#define HSTS_TEST_FILE "hsts-test"
++#define HSTS_TESTING_FILE "hsts-testing"
++#define DEDAULT_XDG_CACHE_DIR ".cache"
