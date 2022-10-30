@@ -14,6 +14,6 @@ GMAKE =				/usr/local/bin/gmake
 
 GH_ACCOUNT =		lukesmithxyz
 GH_PROJECT =		dwm
-GH_COMMIT =			95c85dba2393b7ac7325b20b334701488d6d7902
+GH_COMMIT =			master
 
 .include			<bsd.port.mk>
