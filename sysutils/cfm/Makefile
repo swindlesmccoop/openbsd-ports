@@ -11,6 +11,6 @@ PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		swindlesmccoop
 GH_PROJECT =		cfm-openbsd
-GH_COMMIT =			ddfeb886b980f19d56288fc4531a73b3b724ad3b
+GH_COMMIT =			master
 
 .include			<bsd.port.mk>

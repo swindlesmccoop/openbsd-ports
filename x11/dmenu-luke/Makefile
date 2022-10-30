@@ -12,6 +12,6 @@ PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		lukesmithxyz
 GH_PROJECT =		dmenu
-GH_COMMIT =			705b3c7c9f74fd1c370c6ed994e821135bb7acd4
+GH_COMMIT =			master
 
 .include			<bsd.port.mk>
