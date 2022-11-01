@@ -11,7 +11,7 @@ PERMIT_PACKAGE = 	Yes
 
 GH_ACCOUNT =		KoffeinFlummi
 GH_PROJECT =		htop-vim
-GH_COMMIT =			master
+GH_COMMIT =			830ef7144940875d9d9716e33aff8651d164026e
 
 WANTLIB =			c curses execinfo kvm m
 
