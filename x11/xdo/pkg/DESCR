@@ -1,0 +1,3 @@
+Use xdo to perform actions on windows like close, raise, lower etc.
+If no window ID and no options given, the action applies to the
+focused window.
